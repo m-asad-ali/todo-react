@@ -52,12 +52,32 @@ const Form = () => {
         </div>
       </div>
 
+      {/* -------------------------------------------------------------------------------------- */}
       {/* show data */}
 
-      <div>Task Name:{taskName}</div>
+      <div className="text-center">Todo List Items:</div>
       <ul>
         {taskList.map((item) => {
-          return <li key={item.id}>{item.value}</li>;
+          return (
+            <li key={item.id}>
+              {item.value}
+              <button
+                className="btn btn-outline-success btn-sm"
+                style={{
+                  // borderTopLeftRadius: "12%",
+                  // borderTopRightRadius: "12%",
+                  // borderBottomLeftRadius: "12%",
+                  // borderBottomRightRadius: "12%",
+                  margin: "5px",
+                }}
+                onClick={() => {
+                  setTaskList(taskList.filter((a) => a.id !== item.id));
+                }}
+              >
+                Complete
+              </button>
+            </li>
+          );
         })}
       </ul>
     </div>
