@@ -54,42 +54,38 @@ const Form = () => {
       {/*  //TODO show data through show list file. */}
 
       <div className="text-center">Todo List Items:</div>
-      <ul className="text-center">
+
+      <div className="container-fluid">
         {taskList.map((item) => {
           return (
-            <li key={item.id}>
-              {item.value}
-              <button
-                className="btn btn-outline-success btn-sm"
-                style={{
-                  // borderTopLeftRadius: "12%",
-                  // borderTopRightRadius: "12%",
-                  // borderBottomLeftRadius: "12%",
-                  // borderBottomRightRadius: "12%",
-                  margin: "5px",
-                }}
-                onClick={() => {
-                  setTaskList(taskList.filter((a) => a.id !== item.id));
-                }}
-              >
-                Complete
-              </button>
+            <div className="row m-2">
+              <li className="col-6" key={item.id}>
+                {item.value}
+              </li>
+              {/* border border-secondary rounded */}
+              <div className="col-6 text-end">
+                <button
+                  className="btn btn-outline-success btn-sm m-1"
+                  onClick={() => {
+                    setTaskList(taskList.filter((a) => a.id !== item.id));
+                  }}
+                >
+                  Complete
+                </button>
 
-              <button
-                className="btn btn-outline-danger btn-sm"
-                style={{
-                  margin: "5px",
-                }}
-                onClick={() => {
-                  setTaskList(taskList.filter((a) => a.id !== item.id));
-                }}
-              >
-                Delete
-              </button>
-            </li>
+                <button
+                  className="btn btn-outline-danger btn-sm m-1"
+                  onClick={() => {
+                    setTaskList(taskList.filter((a) => a.id !== item.id));
+                  }}
+                >
+                  Delete
+                </button>
+              </div>
+            </div>
           );
         })}
-      </ul>
+      </div>
     </div>
   );
 };
