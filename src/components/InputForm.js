@@ -22,11 +22,9 @@ const Form = () => {
     }
   };
 
-  console.log({ taskList });
-
   return (
-    <div className="container-fluid p-5">
-      <div className="row m-5">
+    <div className="container-fluid">
+      <div className="row m-1">
         <div className="offset-2 col-6 ">
           <input
             type="text"
@@ -51,12 +49,12 @@ const Form = () => {
           </button>
         </div>
       </div>
-
       {/* -------------------------------------------------------------------------------------- */}
-      {/* show data */}
+
+      {/*  //TODO show data through show list file. */}
 
       <div className="text-center">Todo List Items:</div>
-      <ul>
+      <ul className="text-center">
         {taskList.map((item) => {
           return (
             <li key={item.id}>
@@ -75,6 +73,18 @@ const Form = () => {
                 }}
               >
                 Complete
+              </button>
+
+              <button
+                className="btn btn-outline-danger btn-sm"
+                style={{
+                  margin: "5px",
+                }}
+                onClick={() => {
+                  setTaskList(taskList.filter((a) => a.id !== item.id));
+                }}
+              >
+                Delete
               </button>
             </li>
           );
