@@ -5,7 +5,7 @@ const ShowList = () => {
   const [taskList, setTaskList] = useContext(TaskListContext);
 
   return (
-    <div className="container-fluid text-center">
+    <div className="container-fluid ">
       <h3 className="text-center ">Todo List Items:</h3>
       <div className="container-fluid">
         {taskList.map((item) => {
