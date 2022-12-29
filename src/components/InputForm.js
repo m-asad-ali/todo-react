@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import { TaskListContext } from "../context/TaskListContext";
 
 let nextId = 0;
 
-const Form = () => {
-  const [taskName, setTaskName] = useState("");
+const InputForm = (props) => {
   const [error, setError] = useState("");
-  const [taskList, setTaskList] = useState([]);
+  const [taskName, setTaskName] = useState("");
+  const [taskList, setTaskList] = useContext(TaskListContext);
 
   const handleEvent = (e) => {
     setTaskName(e.target.value);
@@ -18,7 +19,7 @@ const Form = () => {
       setTaskName("");
       setError("");
     } else {
-      setError("task cannot be empty");
+      setError("Task cannot be empty");
     }
   };
 
@@ -49,45 +50,8 @@ const Form = () => {
           </button>
         </div>
       </div>
-      {/* -------------------------------------------------------------------------------------- */}
-
-      {/*  //TODO show data through show list file. */}
-
-      <div className="text-center">Todo List Items:</div>
-
-      <div className="container-fluid">
-        {taskList.map((item) => {
-          return (
-            <div className="row m-2">
-              <li className="col-6" key={item.id}>
-                {item.value}
-              </li>
-              {/* border border-secondary rounded */}
-              <div className="col-6 text-end">
-                <button
-                  className="btn btn-outline-success btn-sm m-1"
-                  onClick={() => {
-                    setTaskList(taskList.filter((a) => a.id !== item.id));
-                  }}
-                >
-                  Complete
-                </button>
-
-                <button
-                  className="btn btn-outline-danger btn-sm m-1"
-                  onClick={() => {
-                    setTaskList(taskList.filter((a) => a.id !== item.id));
-                  }}
-                >
-                  Delete
-                </button>
-              </div>
-            </div>
-          );
-        })}
-      </div>
     </div>
   );
 };
 
-export default Form;
+export default InputForm;
