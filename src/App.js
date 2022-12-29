@@ -5,14 +5,11 @@ import { TaskListProvider } from "./context/TaskListContext";
 
 function App() {
   return (
-    <>
+    <TaskListProvider>
       <div className="h2 text-capitalize text-center m-5">todo list app</div>
-
-      <TaskListProvider>
-        <InputForm></InputForm>
-        <ShowList></ShowList>
-      </TaskListProvider>
-    </>
+      <InputForm></InputForm>
+      <ShowList></ShowList>
+    </TaskListProvider>
   );
 }
 
