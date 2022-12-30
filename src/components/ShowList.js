@@ -18,7 +18,7 @@ const ShowList = () => {
               </li>
               <div className="col-6 text-end">
                 <ListButton type="success" name="Complete" item={item.id} />
-                <ListButton type="warning" name="Delete" item={item.id} />
+                <ListButton type="danger" name="Delete" item={item.id} />
               </div>
             </div>
           );
